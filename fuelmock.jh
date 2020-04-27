@@ -1,0 +1,43 @@
+entity Usuario {
+	dataCadastro LocalDate,
+    name String required minlength(3),
+    email String,
+    senha String,
+    role Role
+}
+
+entity Veiculo {
+	fabricante String required minlength(3),
+    modelo String required minlength(3),
+    km BigDecimal,
+    capTanque BigDecimal,
+    ano Integer,
+}
+
+entity Abastecimento {
+	posto String required,
+    data LocalDate,
+    preco BigDecimal,
+    precoCombustivel BigDecimal,
+    kmAtual BigDecimal,
+}
+
+// defining multiple OneToMany relationships with comments
+relationship ManyToOne {
+	Veiculo to Usuario,
+    Abastecimento to Veiculo
+}
+
+relationship OneToMany {
+	Veiculo to Abastecimento
+}
+
+// Set pagination options
+paginate Abastecimento with pagination
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
