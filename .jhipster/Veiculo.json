@@ -1,0 +1,62 @@
+{
+    "name": "Veiculo",
+    "fields": [
+        {
+            "fieldName": "fabricante",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": "3"
+        },
+        {
+            "fieldName": "modelo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": "3"
+        },
+        {
+            "fieldName": "km",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "capTanque",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "ano",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "abastecimento",
+            "otherEntityRelationshipName": "veiculo",
+            "relationshipName": "abastecimento"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "usuario",
+            "otherEntityRelationshipName": "veiculo",
+            "relationshipName": "usuario",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200427203700",
+    "entityTableName": "veiculo",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "fuelmock",
+    "applications": "*",
+    "microserviceName": "fuelmock"
+}

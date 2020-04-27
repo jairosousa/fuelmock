@@ -1,0 +1,49 @@
+{
+    "name": "Abastecimento",
+    "fields": [
+        {
+            "fieldName": "posto",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "data",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "preco",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "precoCombustivel",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "kmAtual",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "veiculo",
+            "otherEntityRelationshipName": "abastecimento",
+            "relationshipName": "veiculo",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200427203800",
+    "entityTableName": "abastecimento",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "fuelmock",
+    "applications": "*",
+    "microserviceName": "fuelmock"
+}
